@@ -1,10 +1,20 @@
-HELP.md
+# --- Build outputs ---
 target/
-.mvn/wrapper/maven-wrapper.jar
+build/
 !**/src/main/**/target/
 !**/src/test/**/target/
+!**/src/main/**/build/
+!**/src/test/**/build/
 
-### STS ###
+# --- Maven wrapper (keep scripts, ignore jar) ---
+.mvn/wrapper/maven-wrapper.jar
+# keep these tracked:
+!mvnw
+!mvnw.cmd
+!.mvn/wrapper/maven-wrapper.properties
+
+# --- IDEs ---
+### STS / Eclipse ###
 .apt_generated
 .classpath
 .factorypath
@@ -12,12 +22,14 @@ target/
 .settings
 .springBeans
 .sts4-cache
+.bin/
 
 ### IntelliJ IDEA ###
-.idea
+.idea/
 *.iws
 *.iml
 *.ipr
+out/
 
 ### NetBeans ###
 /nbproject/private/
@@ -25,9 +37,37 @@ target/
 /dist/
 /nbdist/
 /.nb-gradle/
-build/
-!**/src/main/**/build/
-!**/src/test/**/build/
 
 ### VS Code ###
 .vscode/
+
+# --- OS junk ---
+.DS_Store
+Thumbs.db
+
+# --- Logs & runtime files ---
+*.log
+logs/
+spring.log
+*.pid
+*.seed
+hs_err_pid*
+
+# --- Local environment & secrets (DO NOT COMMIT) ---
+# Use these locally; reference via ${ENV_VAR} in application.properties
+.env
+.env.*
+*.env
+*.env.*
+application-local.properties
+application-local.yml
+# any file you name "secrets.*" will be ignored
+secrets.*
+*.keystore
+*.jks
+
+# --- Node/Yarn (only if you add a frontend here; harmless otherwise) ---
+node_modules/
+npm-debug.log*
+yarn-error.log*
+.pnpm-store/
